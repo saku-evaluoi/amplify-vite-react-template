@@ -23,6 +23,11 @@ function App() {
     client.models.Todo.delete({ id })
   }
 
+  // setTodoDone
+  function setTodoDone(id: string, isDone: boolean) {
+    client.models.Todo.update({ id, isDone })
+  }
+
   return (
     <main>
       <h1>{user?.signInDetails?.loginId}'s todos</h1>
@@ -30,7 +35,10 @@ function App() {
       <ul>
         {todos.map((todo) => (
           <li
-          key={todo.id}>{todo.content} <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+          key={todo.id}>{todo.content} 
+          {!todo.isDone && (
+            <button onClick={() => setTodoDone(todo.id, true)}>✅ Done</button>
+          )}
           </li>
         ))}
       </ul>
