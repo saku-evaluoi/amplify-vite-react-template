@@ -39,6 +39,7 @@ function App() {
           {!todo.isDone && (
             <button onClick={() => setTodoDone(todo.id, true)}>✅ Done</button>
           )}
+          <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
           </li>
         ))}
       </ul>
@@ -47,7 +48,7 @@ function App() {
         <br />
       </div>
       <button onClick={signOut}>Sign out</button>
-      Copyright 2025 evaluoi.ai
+      <center>Copyright 2025 evaluoi.ai</center>
     </main>
   );
 }
