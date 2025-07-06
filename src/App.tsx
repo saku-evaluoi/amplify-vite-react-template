@@ -39,6 +39,7 @@ function App() {
         <br />
       </div>
       <button onClick={signOut}>Sign out</button>
+      Copyright 2025 evaluoi.ai
     </main>
   );
 }
