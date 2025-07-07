@@ -37,9 +37,11 @@ function App() {
           <li
           key={todo.id}>{todo.content} 
           {!todo.isDone && (
-            <button onClick={() => setTodoDone(todo.id, true)}>✅ Done</button>
+            <div style={{ float: "right" }}>
+              <button onClick={() => setTodoDone(todo.id, true)}>✅ Done</button>
+              <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+            </div>
           )}
-          <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
           </li>
         ))}
       </ul>
