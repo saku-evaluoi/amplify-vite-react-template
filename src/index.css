@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+  /* background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255)); */
+  background-color: #001838;
   display: flex;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   height: 100vh;
@@ -18,17 +19,18 @@ main {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  border-color: #11f8f9;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #000826;
   cursor: pointer;
   transition: border-color 0.25s;
   color: white;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #6eb4fe;
 }
 button:focus,
 button:focus-visible {
@@ -51,7 +53,7 @@ ul {
 }
 
 li {
-  background-color: white;
+  background-color: #001838;
   padding: 8px;
 }
 
