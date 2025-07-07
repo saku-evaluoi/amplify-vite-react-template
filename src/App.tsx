@@ -36,9 +36,15 @@ function App() {
         {todos.map((todo) => (
           <li
           key={todo.id}>{todo.content} 
+          {todo.isDone && (
+            <div style={{ float: "right" }}>
+              <button onClick={() => setTodoDone(todo.id, false)}>🔄 </button>&nbsp;
+              <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+            </div>
+          )}
           {!todo.isDone && (
             <div style={{ float: "right" }}>
-              <button onClick={() => setTodoDone(todo.id, true)}>✅ Done</button>
+              <button onClick={() => setTodoDone(todo.id, true)}>✅ </button>&nbsp;
               <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
             </div>
           )}
@@ -46,11 +52,10 @@ function App() {
         ))}
       </ul>
       <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
+
       </div>
       <button onClick={signOut}>Sign out</button>
-      <center>Copyright 2025 evaluoi.ai</center>
+      <center><p>Copyright 2025 evaluoi.ai</p></center>
     </main>
   );
 }
