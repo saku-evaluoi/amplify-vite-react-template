@@ -55,7 +55,9 @@ function App() {
 
       </div>
       <button onClick={signOut}>Sign out</button>
-      <center><p>Copyright 2025 evaluoi.ai</p></center>
+      <footer>
+        <p>Copyright 2025 evaluoi.ai</p>
+      </footer>
     </main>
   );
 }
