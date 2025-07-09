@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import { generateClient } from "aws-amplify/data";
+import { fetchAuthSession } from 'aws-amplify/auth';
 
+const session = await fetchAuthSession();
 const client = generateClient<Schema>();
+
+const groupinfo = session.tokens?.accessToken.payload['cognito:groups'] || [];
 
 function App() {
   const { user, signOut } = useAuthenticator();
@@ -31,6 +35,7 @@ function App() {
   return (
     <main>
       <h1>{user?.signInDetails?.loginId}'s todos</h1>
+      <p>Group info: {groupinfo.toString()}</p>
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
