@@ -29,34 +29,44 @@ function App() {
     client.models.Todo.update({ id, isDone })
   }
 
+
   return (
     <main>
-      <h1>{user?.signInDetails?.loginId}'s todos</h1>
+      <header>evaluoi.ai</header>
+      <nav>
+        <button onClick={() => window.location.href = "/"}>Home</button>
+        <button onClick={() => window.location.href = "/about"}>About</button>
+        <button onClick={() => window.location.href = "/contact"}>Contact</button>
+        <button onClick={() => window.location.href = "/todos"}>Todos</button>
+      </nav>
+      <body>
+        <h1>{user?.signInDetails?.loginId}'s todos</h1>
 
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li
-          key={todo.id}>{todo.content} 
-          {todo.isDone && (
-            <div style={{ float: "right" }}>
-              <button onClick={() => setTodoDone(todo.id, false)}>🔄 </button>&nbsp;
-              <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
-            </div>
-          )}
-          {!todo.isDone && (
-            <div style={{ float: "right" }}>
-              <button onClick={() => setTodoDone(todo.id, true)}>✅ </button>&nbsp;
-              <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
-            </div>
-          )}
-          </li>
-        ))}
-      </ul>
-      <div>
+        <button onClick={createTodo}>+ new</button>
+        <ul>
+          {todos.map((todo) => (
+            <li
+            key={todo.id}>{todo.content} 
+            {todo.isDone && (
+              <div style={{ float: "right" }}>
+                <button onClick={() => setTodoDone(todo.id, false)}>🔄 </button>&nbsp;
+                <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+              </div>
+            )}
+            {!todo.isDone && (
+              <div style={{ float: "right" }}>
+                <button onClick={() => setTodoDone(todo.id, true)}>✅ </button>&nbsp;
+                <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+              </div>
+            )}
+            </li>
+          ))}
+        </ul>
+        <div>
 
-      </div>
-      <button onClick={signOut}>Sign out</button>
+        </div>
+        <button onClick={signOut}>Sign out</button>
+      </body>
       <footer>
         <p>Copyright 2025 evaluoi.ai</p>
       </footer>
