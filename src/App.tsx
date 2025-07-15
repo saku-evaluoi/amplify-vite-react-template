@@ -31,46 +31,50 @@ function App() {
 
 
   return (
-    <main>
-      <header>evaluoi.ai</header>
-      <nav>
-        <button onClick={() => window.location.href = "/"}>Home</button>
-        <button onClick={() => window.location.href = "/about"}>About</button>
-        <button onClick={() => window.location.href = "/contact"}>Contact</button>
-        <button onClick={() => window.location.href = "/todos"}>Todos</button>
-      </nav>
-      <body>
-        <h1>{user?.signInDetails?.loginId}'s todos</h1>
-
-        <button onClick={createTodo}>+ new</button>
-        <ul>
-          {todos.map((todo) => (
-            <li
-            key={todo.id}>{todo.content} 
-            {todo.isDone && (
-              <div style={{ float: "right" }}>
-                <button onClick={() => setTodoDone(todo.id, false)}>🔄 </button>&nbsp;
-                <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
-              </div>
-            )}
-            {!todo.isDone && (
-              <div style={{ float: "right" }}>
-                <button onClick={() => setTodoDone(todo.id, true)}>✅ </button>&nbsp;
-                <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
-              </div>
-            )}
-            </li>
-          ))}
-        </ul>
-        <div>
-
+    <div className="app-container">
+      <nav className="sidebar">
+        <div className="nav-header">evaluoi.ai</div>
+        <div className="nav-buttons">
+          <button onClick={() => window.location.href = "/"}>Home</button>
+          <button onClick={() => window.location.href = "/about"}>About</button>
+          <button onClick={() => window.location.href = "/contact"}>Contact</button>
+          <button onClick={() => window.location.href = "/todos"}>Todos</button>
         </div>
-        <button onClick={signOut}>Sign out</button>
-      </body>
-      <footer>
-        <p>Copyright 2025 evaluoi.ai</p>
-      </footer>
-    </main>
+      </nav>
+      <main className="main-content">
+        <div className="content">
+          <h1>{user?.signInDetails?.loginId}'s todos</h1>
+
+          <button onClick={createTodo}>+ new</button>
+          <ul>
+            {todos.map((todo) => (
+              <li
+              key={todo.id}>{todo.content} 
+              {todo.isDone && (
+                <div style={{ float: "right" }}>
+                  <button onClick={() => setTodoDone(todo.id, false)}>🔄 </button>&nbsp;
+                  <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+                </div>
+              )}
+              {!todo.isDone && (
+                <div style={{ float: "right" }}>
+                  <button onClick={() => setTodoDone(todo.id, true)}>✅ </button>&nbsp;
+                  <button onClick={() => deleteTodo(todo.id)}>❌ Delete</button>
+                </div>
+              )}
+              </li>
+            ))}
+          </ul>
+          <div>
+
+          </div>
+          <button onClick={signOut}>Sign out</button>
+        </div>
+        <footer>
+          <p>Copyright 2025 evaluoi.ai</p>
+        </footer>
+      </main>
+    </div>
   );
 }
 
